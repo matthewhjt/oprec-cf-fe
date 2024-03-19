@@ -15,7 +15,7 @@ export default function AddDivisionForm() {
     const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         setIsLoading(true)
-        const res = await fetch('https://https://oprec-cf-production.up.railway.app/api/divisi', {
+        const res = await fetch('https://oprec-cf-production.up.railway.app/api/divisi', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
