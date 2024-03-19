@@ -1,3 +1,9 @@
+### Cara menjalankan website
+
+1. Clone repository ke local
+2. Jalankan npm install
+3. Jalankan app dengan npm run dev
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
