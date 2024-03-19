@@ -62,28 +62,32 @@ async function DivisiPage() {
         </div>
         
         <div className='grid grid-cols-1'>
-          {divisions.map(division => {
+          {divisions.map((division) => {
             return (
-                <div className='m-2'>
+                <div className='m-2' key={division.id}>
                     <Card>
                     <CardHeader>
                         <CardTitle>{division.nama}</CardTitle>
                     </CardHeader>
                     <CardContent>
                         <Accordion type="single" collapsible>
-                            {division.Subdivisi.map((subdivision, index) => {
+                            {division.Subdivisi.map((subdivision) => {
+                                let namaHR: string = "-";
                                 let WA: string = "-";
                                 let LINE: string = "-";
-                                if (subdivision.hr.contact[0] != null) {
+                                if (subdivision.hr != null) {
+                                  namaHR = subdivision.hr.nama
+                                  if (subdivision.hr.contact[0] != null) {
                                     if (subdivision.hr.contact[0].contactWA){
                                         WA = subdivision.hr.contact[0].contactWA.nomor.toString();
                                     }
                                     if (subdivision.hr.contact[0].contactLine.username){
                                         LINE = subdivision.hr.contact[0].contactLine.username.toString();
                                     }
+                                  }
                                 }
                                 return (
-                                    <AccordionItem value={index.toString()}>
+                                    <AccordionItem value={subdivision.id} key={subdivision.id}>
                                         <AccordionTrigger>
                                             {subdivision.nama}
                                         </AccordionTrigger>
@@ -103,7 +107,7 @@ async function DivisiPage() {
                                                     </div>
                                                     <div className='p-2 m-2'>
                                                         <p className='font-semibold'>HR:</p>
-                                                        <p>{subdivision.hr.nama}</p>
+                                                        <p>{namaHR}</p>
                                                     </div>
                                                     <div className='p-2 m-2'>
                                                         <p className='font-semibold'>HR Contact:</p>
